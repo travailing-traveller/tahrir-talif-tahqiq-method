@@ -1,1 +1,0 @@
-Store diplomatic transcriptions here.
