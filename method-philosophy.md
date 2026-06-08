@@ -2,186 +2,178 @@
 
 **تحرير · تأليف · تحقيق**
 
-*A discipline for producing Islamic-studies work with AI assistance without surrendering fidelity, attribution, verification, or scholarly judgement.*
+*A discipline for producing Islamic-studies work with AI assistance without
+surrendering fidelity, attribution, or scholarly judgement.*
 
-> **Status: draft, circulated for feedback.** This document states principles and operating commitments. It is offered for criticism and refinement. Disagreement is part of the requested contribution.
+> **Status: draft, circulated for feedback.** This document states principles,
+> not commandments. It is offered to a small circle for criticism and
+> refinement. Disagreement on any point below is the contribution being asked
+> for — see `FEEDBACK.md`.
+
+---
 
 ## What this is
 
-The Taḥrīr / Taʾlīf / Taḥqīq Method is a method, not a tool.
+A *method*, not a tool. It is a way of organising the work of turning sources
+into faithful, well-attributed, multi-register scholarship — using AI for the
+labour it is genuinely good at (retrieval, arrangement, drafting, distillation)
+while structurally denying it the labour it is dangerous at (originating text,
+vocalisation, and attribution from memory).
 
-It is a way of organising scholarly work so that AI may assist with retrieval, arrangement, drafting, translation, comparison, and distillation without being allowed to originate primary text, vocalisation, attribution, or source claims from memory.
+Three movements give the method its name:
 
-The method is built on one governing principle:
+- **Taḥrīr (تحرير)** — *precise formulation.* Thinking the work through:
+  its purpose, audience, sources, conventions, unit of study, and the standard
+  to which it will be held. Nothing is composed until this is sound.
+- **Taʾlīf (تأليف)** — *composition.* Assembling the work from retrieved
+  sources, one unit at a time, and distilling it into the registers it needs.
+- **Taḥqīq (تحقيق)** — *verification.* Establishing that every span and every
+  attribution answers to its source — ideally by an independent hand.
 
-> **The source remains sovereign. The model assists; it does not authorise.**
+The order is also a discipline: **formulate, then compose, then verify** — and
+verify continuously, unit by unit, never in bulk at the end.
 
-## The three movements
+---
 
-### Taḥrīr — precise formulation
+## The principles
 
-Taḥrīr is the disciplined formulation of the work before production begins. It defines the purpose, corpus, source hierarchy, unit of study, intended audience, output register, terminology policy, citation conventions, permitted operations, forbidden operations, and verification standard.
+### 1. The primacy of fidelity (amāna)
 
-Nothing substantive is composed until this is clear.
+Fidelity outranks fluency, completeness, elegance, and speed. When they
+conflict, fidelity wins, every time, without negotiation. The cardinal sin of
+this method is **fabrication** — a quotation that drifts from its source, a
+vocalisation the model supplied, an attribution it confected, a chain it
+smoothed. The whole apparatus exists to make that sin structurally hard to
+commit and easy to detect.
 
-### Taʾlīf — composition and arrangement
+This is *amāna*: the trust that what is transmitted is transmitted faithfully.
+Where the classical tradition demanded *ḍabṭ* (precision) and *isnād* (a traced
+chain) of a transmitter, this method demands a **handle** — a pointer from every
+claim back to the exact source it rests on — and a **check** that the pointer
+holds.
 
-Taʾlīf is the controlled composition, arrangement, translation, annotation, explanation, or distillation of material from retrieved and identified sources.
+### 2. Retrieval-grounded, never memory-grounded
 
-It proceeds one unit at a time. A unit may be an āya and its gloss, one report, one lexical entry, one folio, one masʾalah, one passage, one marginal note, or another project-defined unit.
+This is the single rule that does the most work. A model may *select, arrange,
+translate, and distil* retrieved text. It may **never originate** primary text,
+vocalisation, or attribution from its own weights. Every verbatim source span is
+copied from a retrieved source held in the project's corpus, and tagged with the
+handle of that source. If a span cannot be retrieved, it does not enter the
+work — it enters the uncertainty ledger.
 
-### Taḥqīq — verification and establishment
+Language models are fluent at producing *plausible* classical Arabic, isnāds,
+and citations that are subtly or wholly wrong. The method's answer is not to
+trust the model to be accurate, but to remove its *opportunity* to invent.
 
-Taḥqīq checks that the unit answers to its source. It verifies quotations, source handles, translation fidelity, terminology, claims, uncertainties, and register constraints. Ideally, Taḥqīq is performed by a different model or reviewer from the one that performed Taʾlīf.
+### 3. Verify in small units, never in bulk
 
-Verification is not merely a final stage. It is continuous, unit by unit.
+The work proceeds one **unit** at a time — one āya and its gloss, one report
+and its takhrīj, one folio, one entry. A unit is composed, verified against its
+sources, and only then closed. Bulk-generate-then-check is forbidden: across
+pages, undetected drift accumulates until the apparatus is quietly corrupt. A
+small, fully-verified unit cannot drift unseen. This is slower at first and far
+safer throughout.
 
-## 1. The primacy of fidelity — amāna
+### 4. Division of labour, across different models where possible
 
-Fidelity outranks fluency, elegance, completeness, speed, and productivity.
+The three movements are distinct roles, and the method is **model-agnostic** by
+design — it assumes no single vendor, model, or chat thread. Where practical,
+run the roles on **different models**, and in particular let **Taḥqīq be
+performed by a different model from the one that performed Taʾlīf**. A verifier
+that shares weights with the composer shares its blind spots; an independent
+model is a genuinely independent check. The strongest check of all is not a
+model at all — it is the deterministic verification harness, which answers to no
+model's judgement.
 
-This is an expression of **amāna**. In Islamic scholarly transmission, reliability is not merely a matter of sounding plausible. It requires disciplined preservation, attribution, and accountability. Where the tradition demanded precision, restraint, and traceability from transmitters and scholars, this method demands a **handle**: a pointer from every source span, citation, and source-claim back to the exact file, page, unit, or reference on which it rests.
+No model is ever the source of truth. The sources are sovereign; the folder is
+their faithful ledger; the human scholar is the final authority.
 
-The cardinal sin of the method is fabrication: a quotation that drifts from its source, a vocalisation supplied from memory, an attribution confected, a reference guessed, a legal or theological implication smoothed into certainty.
+### 5. The work is thought through before it is built
 
-The method exists to make such failures structurally difficult and easier to detect.
+This method front-loads thinking. Its **Discovery Gate** is a sustained,
+one-question-at-a-time examination — a *munāqasha* — that walks the whole
+decision tree of the project before a word is composed: purpose, thesis,
+audience, registers, sources and their trust, recension and reading, conventions
+of transliteration and citation, the unit of study, the standard of
+verification, the treatment of contested material, and the division of labour.
 
-## 2. Retrieval-grounded, never memory-grounded
+The Gate is deliberately demanding, and it **will not proceed on inadequate
+input.** Vague, evasive, contradictory, or "you decide" answers are named as
+such and sent back. The method does not reward laziness or shoddiness; it makes
+rigour the path of least resistance and shortcuts structurally difficult. A
+project that cannot survive the Gate is not yet ready to be built — and that is
+a finding, not a failure.
 
-A model may select, compare, arrange, translate, summarise, and distil retrieved material. It may not originate primary text, vocalisation, attribution, isnād, bibliographic detail, page reference, or source claim from its own memory.
+### 6. Uncertainty is preserved, never resolved by invention
 
-Every verbatim source span must come from a source present in the project corpus or from an explicitly approved external reference. Every span must carry a handle.
+Contested readings, unverified attributions, gaps in the corpus, and questions
+that need a manuscript you do not have are recorded in the uncertainty ledger
+and carried openly. The method never silently resolves an unknown to keep the
+output tidy. Intellectual honesty about what is *not* established is part of the
+fidelity it protects.
 
-If a span cannot be retrieved, it does not enter the work as source text. It enters the uncertainty ledger.
+### 7. Registers preserve; they do not add
 
-## 3. The source, not the model, is the authority
+The same verified core is distilled into many registers — scholarly apparatus,
+a sermon, an audio script, a simplified explainer, slides, a translation. A
+register may **compress, reorder, translate, or omit**. It may **never add
+propositional content** absent from the verified core. Every claim in a derived
+register traces back to a unit it came from, so review of a register is review
+of its *new* claims — of which there should be none.
 
-No model is the source of truth. No chat thread is the source of truth. The project folder is the durable ledger of the sources, decisions, questions, risks, units, claims, terminology, and verification status.
+### 8. Provenance and confidence travel with every claim
 
-A new human reviewer or model should be able to read the folder and understand:
+Every span carries a handle; every unit carries a confidence tag
+(*verified-exact*, *verified-translation*, *paraphrase*, *unverified*). Outputs
+that will be heard or read uncritically — a sermon, an audio narration — are
+permitted to draw **only** from verified units. The places with the least
+correction in the loop are allowed the least latitude.
 
-- what is being made;
-- from what sources;
-- to what standard;
-- what has been decided;
-- what remains uncertain;
-- what has been verified;
-- what must not be claimed.
+### 9. The folder is the durable ledger; the chat is ephemeral
 
-## 4. The user must think before the method proceeds
+Models reset, threads vanish, vendors change. The project folder — its
+conventions, decisions, sources, units, and verification records — is the
+durable source of truth. A new collaborator, human or model, should be able to
+read the folder and understand what is being made, from what, to what standard,
+what has been decided, what remains uncertain, and what has been verified.
 
-The method requires the user to think clearly and comprehensively before serious production begins.
+### 10. The human is the muḥaqqiq of record
 
-The user first gives a single-line description of the intended project. That line guides the Discovery Gate.
+Every claim that ships is the human scholar's responsibility, asserted under
+their name and their *amāna*. AI output is a draft pending human verification;
+nothing is published unverified. The method narrows the review surface and makes
+errors visible — it does not transfer accountability to a machine, and it does
+not confer the authority of a scholar on one.
 
-The Discovery Gate then conducts a rigorous interview — a **munāqasha** — covering purpose, corpus, source status, scope, unit size, audience, register, fidelity requirements, citation rules, terminology, verification standard, risks, and smallest useful deliverable.
-
-The method will not proceed if responses are vague, evasive, contradictory, lazy, or not thoughtful enough.
-
-This refusal is not a defect. It is part of the method. A project that cannot survive the Discovery Gate is not yet ready.
-
-## 5. Division of labour and model agnosticism
-
-The method works best when different roles are separated, and preferably performed by different models or reviewers.
-
-Do not ordinarily allow one model to discover, compose, verify, rewrite, and audit its own work without separation.
-
-The roles are:
-
-- Discovery Lead;
-- Source Clerk;
-- Text Processor;
-- Translator / Composer;
-- Verifier;
-- Register Editor;
-- Final Auditor.
-
-Different models have different strengths and blind spots. A verifier that shares the same assumptions as the composer may miss the same errors. The strongest check is a human scholar assisted by deterministic checks and independent review.
-
-The method is model-agnostic by design. It should not depend on one platform, vendor, interface, or conversation.
-
-## 6. Verify in small units, never in bulk
-
-Bulk-generate-then-check is forbidden for serious scholarly work.
-
-The work proceeds one unit at a time. A unit is composed, checked, classified, and only then closed. If undetected drift occurs in bulk, the whole apparatus becomes quietly corrupt. Small units make fidelity visible.
-
-Each unit should record:
-
-- unit ID;
-- source handle(s);
-- operation performed;
-- output;
-- claims introduced;
-- terminology decisions;
-- uncertainties;
-- verification status;
-- reviewer.
-
-## 7. Confidence must travel with claims
-
-Every source span and every claim should carry an appropriate status. Suggested tags:
-
-- `verified-exact` — the span exactly matches the cited source;
-- `verified-normalised` — the span matches after approved normalisation;
-- `verified-translation` — translation checked against the source;
-- `paraphrase` — derived from the source but not a direct translation;
-- `editorial-judgement` — an explicit judgement by the reviewer;
-- `application` — reflective or pedagogical application, not source-claim;
-- `unverified` — not yet established;
-- `requires-review` — human or specialist review needed;
-- `rejected` — not acceptable for output.
-
-Outputs that will be heard or read uncritically — sermons, public summaries, audio scripts, teaching handouts — may draw only on material appropriate to their risk level.
-
-## 8. Uncertainty is preserved, never resolved by invention
-
-Uncertainty is a scholarly asset, not an embarrassment.
-
-The method preserves:
-
-- unreadable text;
-- uncertain readings;
-- possible OCR corruption;
-- disputed attribution;
-- unclear referents;
-- ambiguous syntax;
-- contested legal implications;
-- terminology requiring review;
-- missing citations;
-- source hierarchy questions.
-
-Uncertainty belongs in the uncertainty or questions ledger. It must not be hidden for the sake of tidy prose.
-
-## 9. Registers preserve; they do not smuggle source-claims
-
-A verified core may be distilled into different registers: academic prose, annotated edition, teaching notes, slides, sermon, lecture outline, public summary, Arabic scholarly prose, or publication copy.
-
-A register may compress, reorder, simplify, explain, or apply. It may not present new propositional source-claims as though they were contained in the verified base.
-
-For teaching and devotional registers, faithful application is permitted, but it must remain clearly distinguishable from claims about what the source itself says.
-
-## 10. The human is the muḥaqqiq of record
-
-AI output is a draft pending verification. The method narrows the review surface and makes errors more visible, but it does not transfer responsibility to a machine.
-
-Every claim that ships remains the responsibility of the human editor, translator, teacher, author, or scholar who chooses to rely on it.
-
-The method can enforce handles, ledgers, and checks. It cannot enforce sincerity, adab, proportionality, or fear of misrepresenting the Qurʾān, the Prophet ﷺ, the early Muslims, or the scholarly tradition. That remains with the one doing the work.
+---
 
 ## What this method does not do
 
-- It does not make a model a scholar.
-- It does not replace training, judgement, language competence, ijāza, or specialist review.
-- It does not guarantee correctness.
-- It does not validate the corpus itself.
-- It does not prove that a printed edition, scan, OCR, or transcription is accurate.
-- It does not remove the need to read, think, check, and take responsibility.
+- It does not make a language model a scholar, nor substitute for *ijāza*,
+  training, or judgement.
+- It does not guarantee correctness. It makes a specific failure — fabrication —
+  hard to commit and easy to catch, and shrinks what a human must re-check. The
+  rest of scholarship still has to be done.
+- It does not validate the corpus. The harness proves a span matches the corpus
+  *file*; it cannot prove the file matches the true source. A faithful copy of a
+  faulty edition is still faithful to the wrong thing. Corpus trust — edition
+  identity, OCR quality, vocalisation — is recorded in `SOURCES.md` and remains
+  a human responsibility upstream of everything else.
+- It does not remove the need for *adab*. A method can enforce a handle; it
+  cannot enforce sincerity, proportion, or the fear of misrepresenting the
+  words of the Prophet ﷺ, the salaf, or the scholars. That remains with the one
+  doing the work.
 
-The method reduces specific risks: fabrication, drift, unsupported claims, untracked uncertainty, and premature polishing. The rest of scholarship still has to be done.
+---
 
-## The loop in one breath
+## The shape of a session, in one breath
 
-State the project in one line → survive the Discovery Gate → formulate the project foundations through Taḥrīr → compose or transform one retrieved unit through Taʾlīf → verify it through Taḥqīq, preferably independently → distil verified units into approved registers → keep the folder as the durable ledger.
+State the project in a single line → submit to the Discovery Gate and survive
+its *munāqasha* → produce the **Taḥrīr** (the precise formulation and the
+conventions, sources, and unit plan) → for each unit, **Taʾlīf** assembles it
+from retrieved sources → **Taḥqīq**, ideally on another model, verifies it, with
+the deterministic harness as the floor → distil verified units into the
+**registers** the work needs, adding nothing → keep the folder current as the
+ledger.
 
-Formulate. Compose. Verify. In that order — and verify always.
+Formulate. Compose. Verify. In that order, and verify always.

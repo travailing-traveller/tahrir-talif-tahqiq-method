@@ -1,93 +1,68 @@
 # The Taḥrīr / Taʾlīf / Taḥqīq Method
 
-**تحرير · تأليف · تحقيق** — a source-first method for producing Islamic-studies work with AI assistance without surrendering fidelity, attribution, verification, or scholarly judgement.
+**تحرير · تأليف · تحقيق** — a method (not a tool) for producing Islamic-studies
+work with AI assistance without surrendering fidelity, attribution, or scholarly
+judgement. A **Builder** service role handles code (scraping, cleaning, parsing,
+tooling) under the same fidelity discipline.
 
-> **Draft for feedback.** This kit is intended for careful review by a select circle of users. Disagreement, counter-examples, and genre-specific objections are welcome. See `FEEDBACK.md`.
+> **Draft, circulated for feedback.** See `method-philosophy.md` and `FEEDBACK.md`.
 
 ## The idea in one line
 
-Formulate the work precisely, compose or transform it from retrieved sources one verifiable unit at a time, and verify every unit before distilling it into the registers it needs — adding no unmarked source-claims and hiding no uncertainty.
+Formulate the work precisely; let the Builder acquire and prepare the corpus with
+recorded, reversible tooling; compose from retrieved sources one verifiable unit
+at a time; verify every unit (ideally a different model, deterministic check as
+floor); then distil into the forms it needs, adding nothing.
 
-## The three movements
+## The movements (and the Builder)
 
-- **Taḥrīr (تحرير)** — precise formulation, disciplined editing, and methodological control. The project is interrogated until its purpose, sources, scope, conventions, unit plan, and verification standard are clear enough to proceed.
-- **Taʾlīf (تأليف)** — composition, arrangement, translation, explanation, or distillation from retrieved and identified sources. Work proceeds unit by unit, not in bulk.
-- **Taḥqīq (تحقيق)** — verification, establishment, checking, and audit. Every unit is checked against its sources, terminology rules, claims ledger, and output constraints. Ideally, verification is performed by a different model or reviewer from the one that produced the draft.
+- **Taḥrīr** — precise formulation; the Discovery Gate, then the ledger + sprint plan.
+- **Builder** — the engineering hand: scrapers, cleaners, segmenters, the harness,
+  register exporters, packs. Serves the movements; authors no scholarship.
+- **Taʾlīf** — composition from verbatim corpus spans, a handle on every span.
+- **Taḥqīq** — independent verification; the harness proves spans are in source.
 
-The order is a discipline: **formulate, compose, verify** — while verification continues throughout and not merely at the end.
+## What's in here
 
-## What this kit is for
-
-Use it for Islamic studies work involving:
-
-- OCR correction and text clean-up;
-- diplomatic or normalised transcription;
-- translation;
-- commentary and annotation;
-- terminology control;
-- takhrīj or citation checking;
-- manuscript or edition comparison;
-- study notes and teaching materials;
-- sermon, lecture, or public-facing distillation from verified material;
-- publication preparation;
-- independent audit of existing work.
-
-It is deliberately generic across Islamic studies. Each project supplies its own discipline, madhhab, corpus, language, edition, citation style, audience, and fidelity rules.
-
-## What this kit refuses
-
-The method refuses to proceed from vagueness to polish. It does not reward lazy instructions, thin answers, shoddy source handling, or requests for confident conclusions without verification.
-
-It refuses:
-
-- primary text generated from model memory;
-- invented vocalisation;
-- invented attribution;
-- invented citations;
-- silent emendation;
-- paraphrase presented as translation;
-- interpretation presented as source text;
-- bulk generation before unit verification;
-- register-specific outputs derived from raw OCR or unverified drafts;
-- final claims without a source handle, verified basis, or explicit editorial note.
-
-## Run the method
-
-1. Copy `project-scaffold/` to a new project folder.
-2. Prompt the user with `method-kit/00-one-line-brief.md`.
-3. Run the Discovery Gate using `method-kit/01-discovery-gate.md`.
-4. If the Discovery Gate passes, create the project foundation with `method-kit/03-tahrir-formulation.md`.
-5. Put source files into `project-scaffold/corpus/` or the copied project’s `corpus/` folder.
-6. Process one unit at a time with `method-kit/04-taleef-compilation.md`.
-7. Verify the unit with `method-kit/05-tahqiq-verification.md`.
-8. Run the deterministic harness where applicable:
-
-```bash
-python3 scripts/verify-unit.py units/0001-illustrative-example --corpus corpus
+```
+method-philosophy.md     The principles. Read first.
+FEEDBACK.md              How to critique the method.
+method-kit/              Operator prompts, in order:
+  00-one-line-brief.md      state the project in a single line
+  01-discovery-gate.md      the munāqasha + refuse-to-proceed gate
+  02-core-instructions.md   standing rules + role selection
+  03-tahrir-formulation.md  write the foundation + sprint plan
+  04-builder-execution.md   write/run code to prepare corpus + machinery
+  05-taleef-compilation.md  compose a unit within the active sprint
+  06-tahqiq-verification.md verify a unit (ideally a different model)
+  07-register-distillation.md distil verified units into a register
+  08-handoff.md             compact a session into the ledger
+project-scaffold/        A new project folder:
+  AGENTS.md                 canonical in-folder contract (read first)
+  CLAUDE.md / CODEX.md      thin adapters for agentic tools
+  PROJECT/CONVENTIONS/DECISIONS/UNCERTAINTIES/SOURCES/STATE.md   the ledger
+  sprints/   planned stages (content or infrastructure); example included
+  units/     per-unit work; worked example included
+  corpus/    retrieved sources — raw/ (immutable) + clean/ (derived)
+  registers/ distilled outputs
+  src/ tests/  the Builder's code and its tests
+  scripts/   verify-unit.py · apply-pack.py · normalise-arabic.py
+  templates/sprint/  blank sprint quartet
+  docs/      METHOD.md · GLOSSARY.md · PACK-FORMAT.md
 ```
 
-9. Distil only verified units into registers with `method-kit/06-register-distillation.md`.
-10. Keep the folder current using `method-kit/07-handoff.md`.
+## Tooling (Python 3, no dependencies)
 
-## Folder overview
-
-```text
-method-philosophy.md     Principles and rationale.
-FEEDBACK.md              Questions for reviewers.
-method-kit/              Ordered prompts for running the method.
-skills/                  Reusable role and guardrail instructions.
-project-scaffold/        Copy this for each new project.
-templates/               Reusable file templates.
-examples/                Example one-line briefs and review prompts.
-LICENSE.md               CC BY-NC-SA 4.0 licence notice.
 ```
+python3 scripts/verify-unit.py units/0001-illustrative-example --corpus corpus   # fidelity harness
+python3 scripts/apply-pack.py <pack>.md --dry-run | --apply                       # materialise many files
+python3 scripts/normalise-arabic.py corpus/raw/<h>.txt --out corpus/clean/<h>.txt --check  # logged cleaning
+```
+
+The example harness run ends in `REVIEW` (one span de-vocalised) — a deliberate
+demonstration of how a vocalisation mismatch is surfaced, not waved through.
 
 ## Requirements
-
-- Python 3 for the optional verification harness.
-- No Python dependencies.
-- Two or more models or reviewers are recommended where possible, especially for separating Taʾlīf from Taḥqīq.
-
-## Status
-
-Version 2 draft. Circulate for critique before relying on it in high-stakes scholarly production.
+- Python 3 for the scripts. No dependencies.
+- Two or more AI models recommended (so Taḥqīq is independent of Taʾlīf), plus an
+  agentic coding tool for the Builder role.
